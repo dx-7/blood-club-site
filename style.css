@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+body {
+    background-color: #000;
+    color: #8B0000;
+    font-family: 'UnifrakturCook', cursive;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+nav {
+    text-align: center;
+    padding: 20px;
+}
+
+nav a {
+    color: #8B0000;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FF0000;
+}
+
+.glitch {
+    font-size: 60px;
+    text-align: center;
+    margin-top: 20px;
+    color: #8B0000;
+    position: relative;
+    text-shadow: 1px 0 red, -1px 0 blue;
+}
+
+.content {
+    text-align: center;
+    margin-top: 60px;
+}
