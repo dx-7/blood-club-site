@@ -106,16 +106,32 @@ footer {
 }
 
 /* =====================
-   Gallery Images with Scroll Animation
+   Gallery Layout & Styling
    ===================== */
+.overlay {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
 .gallery-img {
-  max-width: 100%;
-  height: auto;
-  margin: 10px 0;
+  max-width: 300px;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
   border: 2px solid var(--primary);
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease forwards;
+  box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px var(--highlight);
 }
 
 .gallery-img:nth-child(odd) {
@@ -150,6 +166,10 @@ footer {
     font-size: 16px;
     padding: 8px 16px;
   }
+
+  .gallery-img {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -165,5 +185,9 @@ footer {
   .back-home a {
     font-size: 14px;
     padding: 6px 12px;
+  }
+
+  .gallery-img {
+    aspect-ratio: auto;
   }
 }
