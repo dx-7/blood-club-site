@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About - Blood Club</title>
-    <link rel="stylesheet" href="/style.css">
-    <script src="/script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>About - Blood Club</title>
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <audio autoplay loop>
@@ -12,24 +12,93 @@
     Your browser does not support the audio element.
   </audio>
 
-    <div class="glitch" data-text="BLOOD CLUB">BLOOD CLUB</div>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/gallery/">Gallery</a>
-        <a href="/contact/">Contact</a>
-    </nav>
-    <div class="content">
-        <h1>About Blood Club</h1>
-        <p>This is a mysterious underground space where shadows rule and silence echoes.</p>
+  <div class="glitch" data-text="BLOOD CLUB">BLOOD CLUB</div>
 
-<div class="social">
-      <a href="https://www.instagram.com/9othpapi" target="_blank">Instagram</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+
+  <div class="content">
+    <h1 class="gallery-title">About Blood Club</h1>
+
+    <!-- Lore Expansion -->
+    <section class="lore">
+      <h2>The Beginning</h2>
+      <p>
+        Blood Club emerged from the ashes of forgotten rituals, whispered into existence by those who walk the midnight path. What began as an idea became a sanctuary for lost spirits, creatives of the abyss, and bearers of crimson vision.
+      </p>
+    </section>
+
+    <!-- Founder's Manifesto -->
+    <section class="manifesto">
+      <h2>Manifesto</h2>
+      <blockquote>
+        “We are not darkness. We are what darkness reveals.<br>
+        In every shadow, a story. In every drop of blood, a truth.”
+      </blockquote>
+    </section>
+
+    <!-- Gothic Tenets -->
+    <section class="tenets">
+      <h2>Code of Shadows</h2>
+      <ul>
+        <li>The blood remembers what the mind forgets.</li>
+        <li>Silence is sacred.</li>
+        <li>Art is the ritual. Creation is the offering.</li>
+        <li>We gather only under night.</li>
+      </ul>
+    </section>
+
+    <!-- What We Are Not -->
+    <section class="what-we-are-not">
+      <h2>What We Are Not</h2>
+      <p>
+        We are not a brand.<br>
+        We are not influencers.<br>
+        We are not a trend.<br>
+        We are a signal from the void — caught by those who can hear it.
+      </p>
+    </section>
+
+    <!-- Testimonial from the Void -->
+    <section class="testimonial">
+      <h2>Whispers from the Void</h2>
+      <blockquote>
+        “The moment I entered, I knew I had crossed a threshold. Blood Club is not a place — it is an echo. A reminder. A resurrection.”<br>
+        — Anonymous Disciple
+      </blockquote>
+    </section>
+
+    <!-- Candle Quote on Hover -->
+    <div class="candle-quote" title="Only in darkness can light be reborn.">
+      <p>🕯️ Hover over the candle for truth</p>
     </div>
+
+    <!-- Midnight Clock -->
+    <div class="midnight-clock">
+      <h2>Current Hour of the Night</h2>
+      <p id="clock" class="goth-clock">--:--</p>
+    </div>
+
+    <script>
+      function updateClock() {
+        const now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        if (hours < 10) hours = '0' + hours;
+        if (minutes < 10) minutes = '0' + minutes;
+        document.getElementById("clock").textContent = `${hours}:${minutes}`;
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
   </div>
 
-  <footer style="text-align: center; padding: 1em 0; font-size: 0.9em; color: #aaa;">
-    © 2025 Blood Club. All rights reserved.
+  <footer>
+    <p>© 2025 Blood Club. All rights reserved.</p>
   </footer>
 </body>
 </html>

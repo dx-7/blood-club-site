@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Blood Club</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Blood Club - Home</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <audio autoplay loop>
@@ -13,7 +12,7 @@
   </audio>
 
   <div class="glitch" data-text="BLOOD CLUB">BLOOD CLUB</div>
-  
+
   <nav>
     <a href="/">Home</a>
     <a href="/about/">About</a>
@@ -22,12 +21,79 @@
   </nav>
 
   <div class="content">
-    <h1>Welcome to the Blood Club</h1>
-    <p>The shadows are calling...</p>
+    <h1 class="home-intro">Where the shadows dwell and crimson flows eternal.</h1>
+
+    <!-- Gothic Quote Rotator -->
+    <div id="quote-box" class="gothic-quotes">
+      “We are the night.”
+    </div>
+
+    <script>
+      const quotes = [
+        "“We are the night.”",
+        "“Blood is the ink of our art.”",
+        "“The moon remembers what the sun forgets.”"
+      ];
+      let i = 0;
+      setInterval(() => {
+        document.getElementById("quote-box").innerText = quotes[i++ % quotes.length];
+      }, 5000);
+    </script>
+
+    <!-- Origin Lore Block -->
+    <section class="intro-lore">
+      <h2>Origin of Blood Club</h2>
+      <p>
+        In the forgotten corridors of ancient cathedrals, Blood Club was born — a gathering place for the creatures of the night, the seekers of shadows, and the curators of crimson artistry.
+      </p>
+    </section>
+
+    <!-- Call to Action -->
+    <div class="cta-button">
+      <a href="/gallery/" class="blood-button">Enter the Gallery</a>
+    </div>
+
+    <!-- Timeline of the Darkness -->
+    <section class="timeline">
+      <h2>Chronicles</h2>
+      <ul>
+        <li><strong>2024</strong> – Domain summoned from the void</li>
+        <li><strong>2025</strong> – Ritual site opened to the public</li>
+        <li><strong>2026</strong> – ???</li>
+      </ul>
+    </section>
+
+    <!-- Hidden Message Reveal -->
+    <p class="hidden-msg" title="Click if you dare...">🩸 Hover here for truth</p>
+    <script>
+      document.querySelector(".hidden-msg").addEventListener("mouseover", function() {
+        this.textContent = "The blood remembers...";
+      });
+    </script>
+
+    <!-- Visitor Counter -->
+    <div id="visitor-counter" class="visitor-counter">
+      <p>🕯️ <span id="souls">13</span> souls currently wandering the halls...</p>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Fake random count for effect (you can replace with real API later)
+        const count = Math.floor(Math.random() * 15) + 7;
+        document.getElementById("souls").innerText = count;
+      });
+    </script>
+
+    <!-- Featured Media Section -->
+    <section class="featured-media">
+      <h2>Featured Ritual</h2>
+      <img src="/assets/images/ritual-floor-markings.jpg" alt="Featured Gothic Artwork" class="featured-image">
+      <p class="caption">“Circle of the crimson rite” — submitted by anonymous disciple.</p>
+    </section>
   </div>
 
-  <footer style="text-align: center; padding: 1em 0; font-size: 0.9em; color: #aaa;">
-    © 2025 Blood Club. All rights reserved.
+  <footer>
+    <p>© 2025 Blood Club. All rights reserved.</p>
   </footer>
 </body>
 </html>
