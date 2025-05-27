@@ -237,3 +237,19 @@ footer {
     aspect-ratio: auto;
   }
 }
+
+/* Rotational Abyss Quote Styling */
+.abyss-quote {
+  font-style: italic;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 40px;
+  font-size: clamp(18px, 3vw, 24px); /* Larger font size */
+  opacity: 0.8;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.abyss-quote:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px var(--highlight);
+}
