@@ -9,7 +9,7 @@
 }
 
 html {
-  font-size: clamp(18px, 2vw, 22px); /* Base font scaling for the whole page */
+  font-size: clamp(18px, 2.5vw, 22px); /* Adjusted scaling for better readability */
 }
 
 body {
@@ -22,6 +22,7 @@ body {
   background-color: var(--bg);
   color: var(--primary);
   overflow-x: hidden;
+  position: relative;
 }
 
 .page-wrapper {
@@ -41,7 +42,7 @@ nav a {
   color: var(--primary);
   text-decoration: none;
   margin: 0 15px;
-  font-size: clamp(18px, 2vw, 22px); /* Scaling navigation links */
+  font-size: clamp(18px, 2vw, 22px);
   transition: color 0.3s;
 }
 
@@ -50,7 +51,7 @@ nav a:hover {
 }
 
 .glitch {
-  font-size: clamp(50px, 7vw, 80px); /* Adjusted to scale more on larger screens */
+  font-size: clamp(50px, 7vw, 80px);
   text-align: center;
   margin-top: 20px;
   color: var(--primary);
@@ -66,7 +67,7 @@ nav a:hover {
 }
 
 .gallery-title {
-  font-size: clamp(32px, 5vw, 56px); /* Larger scaling for gallery titles */
+  font-size: clamp(32px, 5vw, 56px);
   text-align: center;
   margin: 40px 0 20px;
   color: var(--highlight);
@@ -86,7 +87,7 @@ footer {
   margin-top: auto;
   text-align: center;
   padding: 1em 0;
-  font-size: clamp(18px, 2vw, 22px); /* Larger scaling for footer */
+  font-size: clamp(18px, 2vw, 22px);
   color: var(--text-light);
 }
 
@@ -199,7 +200,7 @@ footer {
 /* Responsive Scaling */
 @media (max-width: 768px) {
   .glitch {
-    font-size: clamp(36px, 6vw, 48px); /* Larger scaling on mobile */
+    font-size: clamp(36px, 6vw, 48px);
   }
 
   nav a {
@@ -219,7 +220,7 @@ footer {
 
 @media (max-width: 480px) {
   .glitch {
-    font-size: clamp(32px, 6vw, 40px); /* Adjust for smaller screens */
+    font-size: clamp(32px, 6vw, 40px);
   }
 
   nav a {
@@ -235,4 +236,43 @@ footer {
   .gallery-img {
     aspect-ratio: auto;
   }
+}
+
+/* Candle Quote Styling */
+.candle-quote {
+  font-style: italic;
+  color: var(--text-light);
+  opacity: 0.7;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.candle-quote:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px var(--highlight);
+}
+
+.midnight-clock {
+  font-family: 'UnifrakturCook', cursive;
+  color: var(--text-light);
+  font-size: clamp(20px, 4vw, 30px);
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* Positioning for Testimonial */
+.testimonial {
+  font-style: italic;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 20px;
+  font-size: clamp(18px, 2vw, 22px);
+  opacity: 0.8;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.testimonial:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px var(--highlight);
 }
