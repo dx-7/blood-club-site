@@ -1,58 +1,169 @@
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 
-body {
-    background-color: #000;
-    color: #8B0000;
-    font-family: 'UnifrakturCook', cursive;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+/* =====================
+   Root Variables
+   ===================== */
+:root {
+  --primary: #8B0000;
+  --highlight: #FF0000;
+  --bg: #000;
+  --text-light: #aaa;
+  --font-main: 'UnifrakturCook', cursive;
 }
 
+/* =====================
+   Base Layout
+   ===================== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  font-family: var(--font-main);
+  background-color: var(--bg);
+  color: var(--primary);
+}
+
+/* =====================
+   Navigation
+   ===================== */
 nav {
-    text-align: center;
-    padding: 20px;
+  text-align: center;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  background-color: var(--bg);
+  z-index: 1000;
 }
 
 nav a {
-    color: #8B0000;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
-    transition: color 0.3s;
+  color: var(--primary);
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #FF0000;
+  color: var(--highlight);
 }
 
+/* =====================
+   Glitch Header
+   ===================== */
 .glitch {
-    font-size: 60px;
-    text-align: center;
-    margin-top: 20px;
-    color: #8B0000;
-    position: relative;
-    text-shadow: 1px 0 red, -1px 0 blue;
+  font-size: 60px;
+  text-align: center;
+  margin-top: 20px;
+  color: var(--primary);
+  position: relative;
+  text-shadow: 1px 0 red, -1px 0 blue;
 }
 
+/* =====================
+   Main Content
+   ===================== */
 .content {
-    text-align: center;
-    margin-top: 60px;
+  flex: 1;
+  text-align: center;
+  margin-top: 60px;
+  padding: 0 20px;
 }
 
-html, body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.content {
-    flex: 1;
-}
-
+/* =====================
+   Footer
+   ===================== */
 footer {
-    text-align: center;
-    padding: 1em 0;
-    font-size: 0.9em;
-    color: #aaa;
+  text-align: center;
+  padding: 1em 0;
+  font-size: 0.9em;
+  color: var(--text-light);
+}
+
+/* =====================
+   Back to Home Button
+   ===================== */
+.back-home {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.back-home a {
+  display: inline-block;
+  color: var(--primary);
+  font-size: 18px;
+  text-decoration: none;
+  border: 1px solid var(--primary);
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-home a:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* =====================
+   Gallery Images with Scroll Animation
+   ===================== */
+.gallery-img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+  border: 2px solid var(--primary);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.gallery-img:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.gallery-img:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================
+   Responsive Media Queries
+   ===================== */
+@media (max-width: 768px) {
+  .glitch {
+    font-size: 40px;
+  }
+
+  nav a {
+    font-size: 16px;
+    margin: 0 10px;
+  }
+
+  .back-home a {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .glitch {
+    font-size: 32px;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .back-home a {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
 }
