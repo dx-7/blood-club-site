@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact - Blood Club</title>
-  <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <title>Contact - Blood Club</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer></script>
 </head>
 <body>
   <audio autoplay loop>
@@ -11,76 +12,20 @@
     Your browser does not support the audio element.
   </audio>
 
-  <div class="glitch" data-text="BLOOD CLUB">BLOOD CLUB</div>
+    <div class="glitch" data-text="BLOOD CLUB">BLOOD CLUB</div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/gallery/">Gallery</a>
+        <a href="/contact/">Contact</a>
+    </nav>
+    <div class="content">
+        <h1>Contact Us</h1>
+        <p>Email: contact@blood.club</p>
+    </div>
 
-  <nav>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/gallery/">Gallery</a>
-    <a href="/contact/">Contact</a>
-  </nav>
-
-  <div class="content">
-    <h1 class="gallery-title">Contact</h1>
-
-    <!-- Message to the Void -->
-    <p>
-      Speak your truth into the void.<br>
-      Whether ritual request or whispered confession,<br>
-      the shadows will listen.
-    </p>
-
-    <!-- Gothic Contact Form -->
-    <form class="goth-form" action="mailto:contact@blood.club" method="post" enctype="text/plain">
-      <label>Your Mortal Name</label>
-      <input type="text" name="name" required>
-
-      <label>Blood-bound Address</label>
-      <input type="email" name="email" required>
-
-      <label>Ritual or Request</label>
-      <textarea name="message" rows="6" required></textarea>
-
-      <label>What walks at night and leaves no shadow? <small>(answer: silence)</small></label>
-      <input type="text" name="riddle" required>
-
-      <button type="submit" class="blood-button">Send to the Shadows</button>
-    </form>
-
-    <!-- Disclaimer -->
-    <p class="disclaimer">
-      We reply in the order the spirits guide us — expect a whisper within 3 nights.
-    </p>
-
-    <!-- Departments -->
-    <section class="departments">
-      <h2>Reach the Proper Entity</h2>
-      <ul>
-        <li><strong>The Archivist</strong> – For lore & history</li>
-        <li><strong>The Gatekeeper</strong> – For membership or access</li>
-        <li><strong>The Silent One</strong> – For everything unspoken</li>
-      </ul>
-    </section>
-
-    <!-- Whisper Box -->
-    <section class="whisper-box">
-      <h2>Confession to the Void</h2>
-      <textarea rows="5" placeholder="Your words vanish into shadow..." disabled></textarea>
-    </section>
-
-    <!-- Cursed Message Log -->
-    <section class="message-log">
-      <h2>Recent Whispers</h2>
-      <ul>
-        <li>“The veil grows thin in Prague.” – unsigned</li>
-        <li>“Blood moon over ruins spotted again.” – B.C. member</li>
-        <li>“They never returned from the gallery.” – unknown sender</li>
-      </ul>
-    </section>
-  </div>
-
-  <footer>
-    <p>© 2025 Blood Club. All rights reserved.</p>
+  <footer style="text-align: center; padding: 1em 0; font-size: 0.9em; color: #aaa;">
+    © 2025 Blood Club. All rights reserved.
   </footer>
 </body>
 </html>
