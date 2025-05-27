@@ -36,12 +36,8 @@ body::before {
 }
 
 @keyframes fogMove {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 1000px 0;
-  }
+  from { background-position: 0 0; }
+  to { background-position: 1000px 0; }
 }
 
 .page-wrapper {
@@ -178,6 +174,7 @@ footer {
 /* Lightbox Fade-In Transition */
 .lb-outerContainer {
   animation: fadeInBleed 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out !important;
 }
 
 @keyframes fadeInBleed {
@@ -191,6 +188,39 @@ footer {
     transform: scale(1);
     box-shadow: 0 0 60px rgba(255, 0, 0, 0.3);
   }
+}
+
+/* Lightbox Black Overlay Fix */
+#lightboxOverlay,
+.lightboxOverlay {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+  animation: fadeOverlay 0.3s ease-in-out;
+}
+
+@keyframes fadeOverlay {
+  from { opacity: 0; }
+  to { opacity: 0.95; }
+}
+
+#lightbox {
+  background: #000 !important;
+  color: var(--text-light);
+}
+
+.lb-data .lb-caption {
+  color: var(--text-light);
+}
+
+.lb-data .lb-number {
+  color: var(--text-light);
+}
+
+.lb-loader {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+
+.lb-image {
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.25);
 }
 
 @media (max-width: 768px) {
