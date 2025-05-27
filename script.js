@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Audio volume
   const music = document.querySelector("audio");
-  if (music) music.volume = 0.5;
+  if (music) music.volume = 0.2;
 
   // Gothic visitor counter
   const souls = document.getElementById("souls-counter");
