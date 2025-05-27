@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "The silence here speaks louder than screams. - Halloween (1978)",
     "We dwell in dusk, never light. - Lil Peep",
     "No soul can escape the pull of the shadows. - Ghostemane",
-    "In silence, we find our truth. - Traits",
+    "In silence, we find our truth. - Traitrs",  // Corrected the spelling here
     "Death is not an end, but a return to the abyss. - Sybyr",
     "The darkest corners of our minds are the most honest. - Bones",
     "The night has many voices, and they all speak in riddles. - Bladee",
@@ -59,15 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
     "I live in the ashes of my dreams. - Bladee",
     "What’s scarier than death? Living without purpose. - Lil Peep",
     "The day will come when I won't be here, but my shadow will still linger. - Vestron Vulture",
-    "The darkness watches. - Sybyr",
-    "The devil wears black and waits for the weak. - Halloween",
+    "The darkness teaches more than the light ever could. - Sybyr",
+    "The void doesn’t take you, it waits for you. - Halloween",
     "We’re all lost in the abyss, waiting for the end. - Wicca Phase Spring Eternal",
     "The shadows aren’t your enemies. They’re your home. - Bones",
     "I am a stranger to light. - Mareux",
     "Fear is the only thing that keeps us alive. - Casket Cassette",
     "We are all haunted by what we’ve done. - Lil Peep",
     "The light fades, and so does the hope. - Soft Kill",
-    "Pain is not a phase; it’s a permanent companion. - Ghostemane",
+    "Pain feeds the soul, but peace is a lie. - Ghostemane",
     "I never asked for the light. I only wanted the truth. - Bladee",
     "The void doesn’t take you, it waits for you. - French Police",
     "Born from nightmares, I walk amongst the living. - Sybyr",
@@ -95,6 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to display a random abyss quote
   if (abyss) {
     const randomQuote = abyssQuotes[Math.floor(Math.random() * abyssQuotes.length)];
-    abyss.innerHTML = `“${randomQuote}”`;  // Displays the quote with artist reference
+    abyss.innerHTML = `"${randomQuote}"`;  // Correct format and removed "the void" part
   }
 });
