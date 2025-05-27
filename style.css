@@ -8,7 +8,11 @@
   --font-main: 'UnifrakturCook', cursive;
 }
 
-html, body {
+html {
+  font-size: clamp(14px, 2vw, 18px);
+}
+
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -35,9 +39,25 @@ body::before {
   z-index: 0;
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(255,0,0,0.05) 0%, transparent 70%);
+  animation: flicker 3s infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
 @keyframes fogMove {
   from { background-position: 0 0; }
   to { background-position: 1000px 0; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.04; }
+  50% { opacity: 0.08; }
 }
 
 .page-wrapper {
@@ -61,7 +81,7 @@ nav a {
   color: var(--primary);
   text-decoration: none;
   margin: 0 15px;
-  font-size: 18px;
+  font-size: 1rem;
   transition: color 0.3s;
 }
 
@@ -70,7 +90,7 @@ nav a:hover {
 }
 
 .glitch {
-  font-size: 60px;
+  font-size: clamp(32px, 6vw, 64px);
   text-align: center;
   margin-top: 20px;
   color: var(--primary);
@@ -85,8 +105,56 @@ nav a:hover {
   padding: 0 20px;
 }
 
+.souls-text {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.hover-quote {
+  font-size: 1.25rem;
+  color: var(--highlight);
+  cursor: default;
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.hover-quote::after {
+  content: attr(title);
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  margin-top: 8px;
+}
+
+.hover-quote:hover::after {
+  opacity: 1;
+}
+
+.abyss-quote {
+  font-style: italic;
+  text-align: center;
+  margin: 30px auto;
+  color: var(--text-light);
+  max-width: 500px;
+  padding: 0 20px;
+  line-height: 1.6;
+}
+
+.abyss-quote span {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: var(--highlight);
+}
+
 .gallery-title {
-  font-size: 36px;
+  font-size: clamp(24px, 4vw, 36px);
   text-align: center;
   margin: 40px 0 20px;
   color: var(--highlight);
@@ -117,7 +185,7 @@ footer {
 .back-home a {
   display: inline-block;
   color: var(--primary);
-  font-size: 18px;
+  font-size: 1rem;
   text-decoration: none;
   border: 1px solid var(--primary);
   padding: 10px 20px;
@@ -159,7 +227,6 @@ footer {
 .gallery-img:nth-child(odd) {
   animation-delay: 0.2s;
 }
-
 .gallery-img:nth-child(even) {
   animation-delay: 0.4s;
 }
@@ -190,7 +257,6 @@ footer {
   }
 }
 
-/* Lightbox Black Overlay Fix */
 #lightboxOverlay,
 .lightboxOverlay {
   background-color: rgba(0, 0, 0, 0.95) !important;
@@ -223,21 +289,12 @@ footer {
   box-shadow: 0 0 30px rgba(255, 0, 0, 0.25);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  .glitch {
-    font-size: 40px;
-  }
-
-  nav a {
-    font-size: 16px;
-    margin: 0 10px;
-  }
-
   .back-home a {
     font-size: 16px;
     padding: 8px 16px;
   }
-
   .gallery-img {
     max-width: 100%;
     aspect-ratio: auto;
@@ -245,20 +302,14 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .glitch {
-    font-size: 32px;
-  }
-
   nav a {
     display: block;
     margin: 10px 0;
   }
-
   .back-home a {
     font-size: 14px;
     padding: 6px 12px;
   }
-
   .gallery-img {
     aspect-ratio: auto;
   }

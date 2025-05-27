@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Blood Club</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Blood Club</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="assets/music/energetic-gothic-323985.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
+<audio id="bg-music" autoplay loop>
+  <source src="/assets/music/energetic-gothic-323985.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
 
   <div class="glitch" data-text="BLOOD CLUB">BLOOD CLUB</div>
-  
+
   <nav>
     <a href="/">Home</a>
     <a href="/about/">About</a>
@@ -24,6 +24,13 @@
   <div class="content">
     <h1>Welcome to the Blood Club</h1>
     <p>The shadows are calling...</p>
+
+    <p id="souls-counter" class="souls-text">13 souls wandering the halls...</p>
+    <p id="goth-clock" class="souls-text"></p>
+
+    <div class="hover-quote" title="There is no light without shadow.">Candle of truth</div>
+
+    <blockquote class="abyss-quote" id="abyss-quote">Loading voice from the void...</blockquote>
   </div>
 
   <footer style="text-align: center; padding: 1em 0; font-size: 0.9em; color: #aaa;">
