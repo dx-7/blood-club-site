@@ -1,19 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Blood Club</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>Blood Club</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+  <!-- Your custom script -->
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <audio autoplay loop>
+  <audio autoplay loop id="bg-music">
     <source src="assets/music/energetic-gothic-323985.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
+  <!-- Auth Panel -->
+  <div class="auth-panel" id="auth-panel">
+    <form id="login-form" onsubmit="signIn(event)">
+      <input type="email" id="email" placeholder="Email" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <button type="submit">Enter</button>
+    </form>
+
+    <form id="signup-form" onsubmit="signUp(event)">
+      <input type="email" id="signup-email" placeholder="New Email" required><br>
+      <input type="password" id="signup-password" placeholder="New Password" required><br>
+      <button type="submit">Join</button>
+    </form>
+
+    <div id="logout-section" style="display:none;">
+      <p>Welcome, <span id="user-email">soul</span></p>
+      <button class="logout-button" onclick="signOut()">Leave</button>
+    </div>
+  </div>
+
   <div class="glitch" data-text="BLOOD CLUB">BLOOD CLUB</div>
-  
+
   <nav>
     <a href="/">Home</a>
     <a href="/about/">About</a>
@@ -23,7 +49,7 @@
 
   <div class="content">
     <h1>Welcome to the Blood Club</h1>
-    <p>The shadows are calling...</p>
+    <p id="welcome-message">The shadows are calling...</p>
   </div>
 
   <footer style="text-align: center; padding: 1em 0; font-size: 0.9em; color: #aaa;">
