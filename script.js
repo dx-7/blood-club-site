@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set background music volume to 50% (0.5) for consistency across all pages
   const music = document.getElementById("bg-music");
   if (music) {
-    music.volume = 0.5;  // Set the volume to 50% (adjust this level as needed)
+    music.volume = 1;  // Set the volume to 50% (adjust this level as needed)
   }
 
   // Expanded list of abyssal, dark, and gothic quotes with artists/characters referenced
