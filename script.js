@@ -9,7 +9,7 @@ const abyssQuotes = [
   '"The silence here speaks louder than screams." - Halloween (1978)',
   '"We dwell in dusk, never light." - Lil Peep',
   '"No soul can escape the pull of the shadows." - Ghostemane',
-  '"In silence, we find our truth." - Traits',
+  '"In silence, we find our truth." - Traitrs',
   '"Death is not an end, but a return to the abyss." - Sybyr',
   '"The darkest corners of our minds are the most honest." - Bones',
   '"The night has many voices, and they all speak in riddles." - Bladee',
