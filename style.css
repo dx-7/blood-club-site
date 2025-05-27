@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 
-/* =====================
-   Root Variables
-   ===================== */
 :root {
   --primary: #8B0000;
   --highlight: #FF0000;
@@ -11,9 +8,6 @@
   --font-main: 'UnifrakturCook', cursive;
 }
 
-/* =====================
-   Base Layout
-   ===================== */
 html, body {
   height: 100%;
   margin: 0;
@@ -23,17 +17,41 @@ html, body {
   font-family: var(--font-main);
   background-color: var(--bg);
   color: var(--primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/images/fog.png') repeat;
+  opacity: 0.06;
+  pointer-events: none;
+  animation: fogMove 60s linear infinite;
+  z-index: 0;
+}
+
+@keyframes fogMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px 0;
+  }
 }
 
 .page-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
-/* =====================
-   Navigation
-   ===================== */
 nav {
   text-align: center;
   padding: 20px;
@@ -55,9 +73,6 @@ nav a:hover {
   color: var(--highlight);
 }
 
-/* =====================
-   Glitch Header
-   ===================== */
 .glitch {
   font-size: 60px;
   text-align: center;
@@ -67,9 +82,6 @@ nav a:hover {
   text-shadow: 1px 0 red, -1px 0 blue;
 }
 
-/* =====================
-   Main Content
-   ===================== */
 .content {
   flex: 1;
   text-align: center;
@@ -94,9 +106,6 @@ nav a:hover {
   box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
 }
 
-/* =====================
-   Footer
-   ===================== */
 footer {
   text-align: center;
   padding: 1em 0;
@@ -104,9 +113,6 @@ footer {
   color: var(--text-light);
 }
 
-/* =====================
-   Back to Home Button
-   ===================== */
 .back-home {
   text-align: center;
   margin: 40px 0;
@@ -127,9 +133,6 @@ footer {
   color: #fff;
 }
 
-/* =====================
-   Gallery Layout & Styling
-   ===================== */
 .overlay {
   display: flex;
   flex-wrap: wrap;
@@ -172,9 +175,24 @@ footer {
   }
 }
 
-/* =====================
-   Responsive Media Queries
-   ===================== */
+/* Lightbox Fade-In Transition */
+.lb-outerContainer {
+  animation: fadeInBleed 0.4s ease-in-out;
+}
+
+@keyframes fadeInBleed {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 60px rgba(255, 0, 0, 0.3);
+  }
+}
+
 @media (max-width: 768px) {
   .glitch {
     font-size: 40px;
