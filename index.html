@@ -7,27 +7,60 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-  <audio autoplay loop>
+  <!-- Intro Overlay -->
+  <div id="intro-overlay">
+    <div class="blood-drip"></div>
+    <div class="intro-content">
+      <h1>Join the Blood Club</h1>
+      <button onclick="startSite()">Enter</button>
+    </div>
+  </div>
+
+  <audio id="bg-music" loop>
     <source src="assets/music/energetic-gothic-323985.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
 
-  <div class="glitch" data-text="BLOOD CLUB">BLOOD CLUB</div>
-  
-  <nav>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/gallery/">Gallery</a>
-    <a href="/contact/">Contact</a>
-  </nav>
+  <div class="page-wrapper">
+    <div class="glitch" data-text="BLOOD CLUB">BLOOD CLUB</div>
 
-  <div class="content">
-    <h1>Welcome to the Blood Club</h1>
-    <p>The shadows are calling...</p>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/gallery/">Gallery</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+
+    <div class="content">
+      <h1>Welcome to the Blood Club</h1>
+      <p>The shadows are calling...</p>
+    </div>
+
+    <footer style="text-align: center; padding: 1em 0; font-size: 0.9em; color: #aaa;">
+      © 2025 Blood Club. All rights reserved.
+    </footer>
   </div>
 
-  <footer style="text-align: center; padding: 1em 0; font-size: 0.9em; color: #aaa;">
-    © 2025 Blood Club. All rights reserved.
-  </footer>
+  <script>
+    function startSite() {
+  const overlay = document.getElementById("intro-overlay");
+  const audio = document.getElementById("bg-music");
+
+  audio.volume = 0;
+  audio.play();
+  let vol = 0;
+  const fade = setInterval(() => {
+    if (vol < 1) {
+      vol += 0.05;
+      audio.volume = Math.min(vol, 1);
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+
+  overlay.style.opacity = "0";
+  setTimeout(() => overlay.style.display = "none", 800);
+}
+  </script>
 </body>
 </html>
