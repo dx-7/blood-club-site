@@ -106,3 +106,141 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// script.js
+
+const canvas = document.getElementById("bat-game");
+const ctx = canvas.getContext("2d");
+
+const playButton = document.getElementById("play-btn");
+const restartButton = document.getElementById("restart-btn");
+
+let bat, gravity, velocity, isPlaying, spikes, score, coffinImg;
+
+function resetGame() {
+  bat = {
+    x: 80,
+    y: canvas.height / 2,
+    radius: 20,
+    velocityY: 0,
+  };
+  gravity = 0.5;
+  velocity = -8;
+  score = 0;
+  isPlaying = false;
+  spikes = generateObstacles();
+}
+
+function generateObstacles() {
+  const gap = 120;
+  const width = 60;
+  const spikes = [];
+
+  for (let i = 0; i < 3; i++) {
+    const top = Math.random() * 150 + 50;
+    spikes.push({
+      x: 400 + i * 250,
+      width,
+      top,
+      bottom: top + gap,
+    });
+  }
+  return spikes;
+}
+
+function drawBat() {
+  ctx.fillStyle = "#8B0000";
+  ctx.beginPath();
+  ctx.arc(bat.x, bat.y, bat.radius, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+function drawSpikes() {
+  ctx.fillStyle = "#880000";
+  spikes.forEach(spike => {
+    ctx.fillRect(spike.x, 0, spike.width, spike.top);
+    ctx.fillRect(spike.x, spike.bottom, spike.width, canvas.height - spike.bottom);
+  });
+}
+
+function drawScore() {
+  ctx.fillStyle = "#ff4444";
+  ctx.font = "28px serif";
+  ctx.textAlign = "left";
+  ctx.fillText("Score: " + score, 10, 30);
+}
+
+function checkCollision() {
+  if (bat.y + bat.radius >= canvas.height || bat.y - bat.radius <= 0) return true;
+  for (let spike of spikes) {
+    if (
+      bat.x + bat.radius > spike.x &&
+      bat.x - bat.radius < spike.x + spike.width &&
+      (bat.y - bat.radius < spike.top || bat.y + bat.radius > spike.bottom)
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function updateGame() {
+  if (!isPlaying) return;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Move bat
+  bat.velocityY += gravity;
+  bat.y += bat.velocityY;
+
+  // Move spikes
+  for (let spike of spikes) {
+    spike.x -= 2;
+  }
+
+  // Check for passing and scoring
+  if (spikes[0].x + spikes[0].width < 0) {
+    spikes.shift();
+    const last = spikes[spikes.length - 1];
+    const top = Math.random() * 150 + 50;
+    spikes.push({
+      x: last.x + 250,
+      width: 60,
+      top,
+      bottom: top + 120,
+    });
+    score++;
+  }
+
+  drawBat();
+  drawSpikes();
+  drawScore();
+
+  if (checkCollision()) {
+    isPlaying = false;
+    restartButton.style.display = "block";
+  } else {
+    requestAnimationFrame(updateGame);
+  }
+}
+
+canvas.addEventListener("click", () => {
+  if (isPlaying) bat.velocityY = velocity;
+});
+
+playButton.addEventListener("click", () => {
+  playButton.style.display = "none";
+  restartButton.style.display = "none";
+  resetGame();
+  isPlaying = true;
+  updateGame();
+});
+
+restartButton.addEventListener("click", () => {
+  restartButton.style.display = "none";
+  resetGame();
+  isPlaying = true;
+  updateGame();
+});
+
+// Initialize game
+resetGame();
