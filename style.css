@@ -483,3 +483,9 @@ nav a:hover {
   80% { clip-path: inset(70% 0 15% 0); }
   100% { clip-path: inset(80% 0 10% 0); }
 }
+.site-footer {
+  text-align: center;
+  padding: 1em 0;
+  font-size: 0.9em;
+  color: var(--text-light);
+}

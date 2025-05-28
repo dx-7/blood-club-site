@@ -100,3 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
     abyss.innerHTML = randomQuote; // Properly formatted quote without additional quote marks
   }
 });
+if (typeof lightbox !== "undefined") {
+  lightbox.option({
+    resizeDuration: 200,
+    wrapAround: true
+  });
+}
