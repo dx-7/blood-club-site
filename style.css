@@ -138,10 +138,10 @@ nav a:hover {
 /* =====================
    Footer Styling
    ===================== */
-footer {
+.site-footer {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
   text-align: center;
   padding: 1em 0;
-  font-size: clamp(0.8rem, 1.5vw, 1rem); /* Responsive footer text */
   color: var(--text-light);
   position: relative;
   z-index: 100;
@@ -482,10 +482,4 @@ nav a:hover {
   60% { clip-path: inset(50% 0 30% 0); }
   80% { clip-path: inset(70% 0 15% 0); }
   100% { clip-path: inset(80% 0 10% 0); }
-}
-.site-footer {
-  text-align: center;
-  padding: 1em 0;
-  font-size: 0.9em;
-  color: var(--text-light);
 }
