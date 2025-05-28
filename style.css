@@ -3,9 +3,6 @@
    ===================== */
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 
-/* =====================
-   Root Variables for Color and Font
-   ===================== */
 :root {
   --primary: #8B0000;
   --highlight: #FF0000;
@@ -14,9 +11,6 @@
   --font-main: 'UnifrakturCook', cursive;
 }
 
-/* =====================
-   General Body and HTML Styling
-   ===================== */
 html, body {
   height: 100%;
   margin: 0;
@@ -28,12 +22,9 @@ html, body {
   color: var(--primary);
   overflow-x: hidden;
   position: relative;
-  font-size: clamp(1rem, 2vw, 1.5rem); /* Scales the base font size */
+  font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
-/* =====================
-   Fog Background Effect
-   ===================== */
 body::before {
   content: "";
   position: fixed;
@@ -57,9 +48,6 @@ body::before {
   }
 }
 
-/* =====================
-   Main Page Wrapper Styling
-   ===================== */
 .page-wrapper {
   flex: 1;
   display: flex;
@@ -68,9 +56,6 @@ body::before {
   z-index: 1;
 }
 
-/* =====================
-   Navigation Styling
-   ===================== */
 nav {
   text-align: center;
   padding: 20px;
@@ -84,7 +69,7 @@ nav a {
   color: var(--primary);
   text-decoration: none;
   margin: 0 15px;
-  font-size: clamp(1.2rem, 2vw, 1.4rem); /* Responsive nav font size */
+  font-size: clamp(1.4rem, 2vw, 1.6rem);
   transition: color 0.3s;
 }
 
@@ -92,21 +77,6 @@ nav a:hover {
   color: var(--highlight);
 }
 
-/* =====================
-   Glitch Effect Styling
-   ===================== */
-.glitch {
-  font-size: clamp(2.5rem, 5vw, 4rem); /* Font size scales based on viewport width */
-  text-align: center;
-  margin-top: 20px;
-  color: var(--primary);
-  position: relative;
-  text-shadow: 1px 0 red, -1px 0 blue;
-}
-
-/* =====================
-   Content Section Styling
-   ===================== */
 .content {
   flex: 1;
   text-align: center;
@@ -114,346 +84,14 @@ nav a:hover {
   padding: 0 20px;
 }
 
-/* =====================
-   Gallery Title Styling
-   ===================== */
-.gallery-title {
-  font-size: clamp(2rem, 4vw, 3.5rem); /* Responsive gallery title font size */
-  text-align: center;
-  margin: 40px 0 20px;
-  color: var(--highlight);
-  text-shadow: 1px 1px 4px #000;
-}
-
-/* Gallery Title Underline */
-.gallery-title::after {
-  content: '';
-  display: block;
-  width: 60px;
-  margin: 10px auto;
-  border-bottom: 3px solid var(--highlight);
-  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
-}
-
-/* =====================
-   Footer Styling
-   ===================== */
-.site-footer {
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
-  text-align: center;
-  padding: 1em 0;
-  color: var(--text-light);
-  position: relative;
-  z-index: 100;
-  margin-top: auto;
-}
-
-/* =====================
-   Back to Home Button Styling
-   ===================== */
-.back-home {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.back-home a {
-  display: inline-block;
-  color: var(--primary);
-  font-size: 1.2rem;
-  text-decoration: none;
-  border: 1px solid var(--primary);
-  padding: 10px 20px;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.back-home a:hover {
-  background-color: var(--primary);
-  color: #fff;
-}
-
-/* =====================
-   Gallery Image Styling
-   ===================== */
-.overlay {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.gallery-img {
-  max-width: 300px;
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border: 2px solid var(--primary);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-  box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.gallery-img:hover {
-  transform: scale(1.05) rotate(1deg);
-  box-shadow: 0 0 20px var(--highlight);
-}
-
-.gallery-img:nth-child(odd) {
-  animation-delay: 0.2s;
-}
-
-.gallery-img:nth-child(even) {
-  animation-delay: 0.4s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =====================
-   Lightbox Styling
-   ===================== */
-.lb-outerContainer {
-  animation: fadeInBleed 0.4s ease-in-out;
-}
-
-@keyframes fadeInBleed {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-    box-shadow: 0 0 60px rgba(255, 0, 0, 0.3);
-  }
-}
-
-@media (max-width: 768px) {
-  .glitch {
-    font-size: 30px;
-  }
-
-  nav a {
-    font-size: 16px;
-    margin: 0 10px;
-  }
-
-  .back-home a {
-    font-size: 16px;
-    padding: 8px 16px;
-  }
-
-  .gallery-img {
-    max-width: 100%;
-    aspect-ratio: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .glitch {
-    font-size: 24px;
-  }
-
-  nav a {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .back-home a {
-    font-size: 14px;
-    padding: 6px 12px;
-  }
-
-  .gallery-img {
-    aspect-ratio: auto;
-  }
-}
-
-/* =====================
-   Lightbox Black Overlay Fix
-   ===================== */
-#lightboxOverlay,
-.lightboxOverlay {
-  background-color: rgba(0, 0, 0, 0.95) !important;
-}
-
-#lightbox {
-  background: #000 !important;
-  color: var(--text-light);
-}
-
-.lb-data .lb-caption {
-  color: var(--text-light);
-}
-
-.lb-data .lb-number {
-  color: var(--text-light);
-}
-
-.lb-loader {
-  background: rgba(0, 0, 0, 0.9) !important;
-}
-
-/* =====================
-   Quote Glow Effect Styling
-   ===================== */
-.quote {
-  font-size: clamp(1.5rem, 2.5vw, 2rem); /* Responsive font size */
-  color: var(--text-light);
-  text-shadow: 0 0 10px var(--highlight), 0 0 20px var(--highlight), 0 0 30px var(--highlight);
-  animation: glowEffect 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes glowEffect {
-  0% {
-    text-shadow: 0 0 10px var(--highlight), 0 0 20px var(--highlight), 0 0 30px var(--highlight);
-  }
-  100% {
-    text-shadow: 0 0 20px var(--highlight), 0 0 40px var(--highlight), 0 0 60px var(--highlight);
-  }
-}
-/* Root Variables for Color and Font */
-:root {
-  --primary: #8B0000;
-  --highlight: #FF0000;
-  --bg: #000;
-  --text-light: #aaa;
-  --font-main: 'UnifrakturCook', cursive;
-}
-
-/* General Body and HTML Styling */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  font-family: var(--font-main);
-  background-color: var(--bg);
-  color: var(--primary);
-  overflow-x: hidden;
-  position: relative;
-  font-size: clamp(1rem, 2vw, 1.5rem); /* Scales the base font size between 1rem and 1.5rem depending on screen width */
-}
-
-/* Blood Club Title (Largest) */
-.glitch {
-  font-size: clamp(3rem, 5vw, 5rem); /* Larger title font size */
-  text-align: center;
-  margin-top: 20px;
-  color: var(--primary);
-  position: relative;
-  text-shadow: 1px 0 red, -1px 0 blue;
-}
-
-/* Navigation Styling */
-nav {
-  text-align: center;
-  padding: 20px;
-  position: sticky;
-  top: 0;
-  background-color: var(--bg);
-  z-index: 1000;
-}
-
-nav a {
-  color: var(--primary);
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: clamp(1.4rem, 2vw, 1.6rem); /* Smaller font for navigation than the title */
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: var(--highlight);
-}
-
-/* Content Section Styling */
-.content {
-  flex: 1;
-  text-align: center;
-  margin-top: 60px;
-  padding: 0 20px;
-}
-
-/* Gallery Title Styling */
-.gallery-title {
-  font-size: clamp(2rem, 4vw, 3.5rem); /* Responsive gallery title font size */
-  text-align: center;
-  margin: 40px 0 20px;
-  color: var(--highlight);
-  text-shadow: 1px 1px 4px #000;
-}
-
-/* Gallery Image Styling */
-.overlay {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-.gallery-img {
-  max-width: 300px;
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border: 2px solid var(--primary);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-  box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.gallery-img:hover {
-  transform: scale(1.05) rotate(1deg);
-  box-shadow: 0 0 20px var(--highlight);
-}
-
-.gallery-img:nth-child(odd) {
-  animation-delay: 0.2s;
-}
-
-.gallery-img:nth-child(even) {
-  animation-delay: 0.4s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .glitch {
   position: relative;
   font-size: clamp(3rem, 5vw, 5rem);
   font-weight: bold;
-  color: var(--primary); /* restores your blood-red theme */
+  color: var(--primary);
   text-align: center;
   margin-top: 40px;
   letter-spacing: 2px;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  width: 100%;
-  color: var(--primary); /* base color preserved */
-  overflow: hidden;
-  z-index: -1;
 }
 
 .glitch::before {
@@ -482,4 +120,151 @@ nav a:hover {
   60% { clip-path: inset(50% 0 30% 0); }
   80% { clip-path: inset(70% 0 15% 0); }
   100% { clip-path: inset(80% 0 10% 0); }
+}
+
+.gallery-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  text-align: center;
+  margin: 40px 0 20px;
+  color: var(--highlight);
+  text-shadow: 1px 1px 4px #000;
+}
+
+.gallery-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  margin: 10px auto;
+  border-bottom: 3px solid var(--highlight);
+  box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+}
+
+.overlay {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.gallery-img {
+  max-width: 300px;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+  box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05) rotate(1deg);
+  box-shadow: 0 0 20px var(--highlight);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.site-footer {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  text-align: center;
+  padding: 1em 0;
+  color: var(--text-light);
+  position: relative;
+  z-index: 100;
+  margin-top: auto;
+}
+
+.back-home {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.back-home a {
+  display: inline-block;
+  color: var(--primary);
+  font-size: 1.2rem;
+  text-decoration: none;
+  border: 1px solid var(--primary);
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-home a:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .back-home a {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-home a {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+}
+
+#lightboxOverlay,
+.lightboxOverlay {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+#lightbox {
+  background: #000 !important;
+  color: var(--text-light);
+}
+
+.lb-data .lb-caption,
+.lb-data .lb-number {
+  color: var(--text-light);
+}
+
+.lb-loader {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+
+.quote {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--text-light);
+  text-shadow: 0 0 10px var(--highlight), 0 0 20px var(--highlight), 0 0 30px var(--highlight);
+  animation: glowEffect 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glowEffect {
+  0% {
+    text-shadow: 0 0 10px var(--highlight), 0 0 20px var(--highlight), 0 0 30px var(--highlight);
+  }
+  100% {
+    text-shadow: 0 0 20px var(--highlight), 0 0 40px var(--highlight), 0 0 60px var(--highlight);
+  }
+}
+
+.lb-outerContainer {
+  animation: fadeInBleed 0.4s ease-in-out;
+}
+
+@keyframes fadeInBleed {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.15);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 60px rgba(255, 0, 0, 0.3);
+  }
 }
