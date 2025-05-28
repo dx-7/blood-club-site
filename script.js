@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Set background music volume to 50% (0.5) for consistency across all pages
+  // Set background music volume to 100% (change to 0.5 for 50% if needed)
   const music = document.getElementById("bg-music");
   if (music) {
-    music.volume = 1;  // Set the volume to 50% (adjust this level as needed)
+    music.volume = 1;
   }
 
   // Expanded list of abyssal, dark, and gothic quotes with artists/characters referenced
@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
     '"The voices in my head speak in whispers, like the wind through broken glass." — Soft Kill',
     '"Cold hands grasp at my soul, pulling me into the void." — Ghostemane',
     '"I live in the ashes of my dreams." — Bladee',
-    '"What’s scarier than death? Living without purpose." — Lil Peep',
     '"The day will come when I won\'t be here, but my shadow will still linger." — Vestron Vulture',
     '"The darkness teaches more than the light ever could." — Sybyr',
     '"The void doesn’t take you, it waits for you." — Halloween',
@@ -94,15 +93,16 @@ document.addEventListener("DOMContentLoaded", () => {
     '"Pain feeds the soul, but peace is a lie." — Bladee'
   ];
 
-  // Function to display a random abyss quote with the proper format
   if (abyss) {
     const randomQuote = abyssQuotes[Math.floor(Math.random() * abyssQuotes.length)];
-    abyss.innerHTML = randomQuote; // Properly formatted quote without additional quote marks
+    abyss.innerHTML = randomQuote;
+  }
+
+  // ✅ Lightbox configuration
+  if (typeof lightbox !== "undefined") {
+    lightbox.option({
+      resizeDuration: 200,
+      wrapAround: true
+    });
   }
 });
-if (typeof lightbox !== "undefined") {
-  lightbox.option({
-    resizeDuration: 200,
-    wrapAround: true
-  });
-}
