@@ -435,44 +435,51 @@ nav a:hover {
     transform: translateY(0);
   }
 }
-/* Glitch Effect Patch */
+.glitch {
+  position: relative;
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: bold;
+  color: var(--primary); /* restores your blood-red theme */
+  text-align: center;
+  margin-top: 40px;
+  letter-spacing: 2px;
+}
+
 .glitch::before,
 .glitch::after {
   content: attr(data-text);
   position: absolute;
   left: 0;
-  top: 0;
   width: 100%;
+  color: var(--primary); /* base color preserved */
   overflow: hidden;
-  clip: rect(0, 900px, 0, 0);
-}
-
-.glitch::before {
-  animation: glitchTop 2s infinite linear alternate-reverse;
-  color: red;
   z-index: -1;
 }
 
+.glitch::before {
+  text-shadow: -2px 0 red;
+  animation: glitch-before 2s infinite linear alternate-reverse;
+}
+
 .glitch::after {
-  animation: glitchBottom 1.5s infinite linear alternate-reverse;
-  color: blue;
-  z-index: -2;
+  text-shadow: -2px 0 blue;
+  animation: glitch-after 1.5s infinite linear alternate-reverse;
 }
 
-@keyframes glitchTop {
-  0% { clip: rect(2px, 9999px, 44px, 0); transform: translate(-3px, -3px); }
-  20% { clip: rect(15px, 9999px, 20px, 0); transform: translate(3px, 1px); }
-  40% { clip: rect(5px, 9999px, 55px, 0); transform: translate(-2px, -2px); }
-  60% { clip: rect(24px, 9999px, 44px, 0); transform: translate(1px, 2px); }
-  80% { clip: rect(1px, 9999px, 50px, 0); transform: translate(-1px, 1px); }
-  100% { clip: rect(10px, 9999px, 20px, 0); transform: translate(2px, -1px); }
+@keyframes glitch-before {
+  0% { clip-path: inset(0% 0 90% 0); }
+  20% { clip-path: inset(10% 0 85% 0); }
+  40% { clip-path: inset(25% 0 65% 0); }
+  60% { clip-path: inset(10% 0 85% 0); }
+  80% { clip-path: inset(5% 0 90% 0); }
+  100% { clip-path: inset(0% 0 90% 0); }
 }
 
-@keyframes glitchBottom {
-  0% { clip: rect(60px, 9999px, 80px, 0); transform: translate(3px, 2px); }
-  20% { clip: rect(70px, 9999px, 90px, 0); transform: translate(-3px, -1px); }
-  40% { clip: rect(40px, 9999px, 70px, 0); transform: translate(2px, 2px); }
-  60% { clip: rect(65px, 9999px, 85px, 0); transform: translate(-1px, -2px); }
-  80% { clip: rect(50px, 9999px, 75px, 0); transform: translate(1px, 1px); }
-  100% { clip: rect(58px, 9999px, 78px, 0); transform: translate(-2px, 3px); }
+@keyframes glitch-after {
+  0% { clip-path: inset(80% 0 10% 0); }
+  20% { clip-path: inset(65% 0 20% 0); }
+  40% { clip-path: inset(35% 0 40% 0); }
+  60% { clip-path: inset(50% 0 30% 0); }
+  80% { clip-path: inset(70% 0 15% 0); }
+  100% { clip-path: inset(80% 0 10% 0); }
 }
