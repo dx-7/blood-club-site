@@ -446,3 +446,103 @@ footer {
   z-index: 100;
   margin-top: auto;
 }
+.glitch {
+  font-size: clamp(3rem, 5vw, 5rem);
+  text-align: center;
+  margin-top: 20px;
+  color: var(--primary);
+  position: relative;
+  animation: glitch 1.5s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  color: var(--highlight);
+  clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+  animation: glitchTop 1.5s infinite linear alternate-reverse;
+  color: red;
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitchBottom 1.5s infinite linear alternate-reverse;
+  color: blue;
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0% {
+    transform: none;
+  }
+  20% {
+    transform: skew(-5deg);
+  }
+  40% {
+    transform: skew(5deg);
+  }
+  60% {
+    transform: translate(-2px, 1px);
+  }
+  80% {
+    transform: translate(2px, -1px);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes glitchTop {
+  0% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  10% {
+    clip: rect(0, 900px, 50px, 0);
+  }
+  20% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  30% {
+    clip: rect(10px, 900px, 60px, 0);
+  }
+  40% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  50% {
+    clip: rect(5px, 900px, 40px, 0);
+  }
+  100% {
+    clip: rect(0, 900px, 0, 0);
+  }
+}
+
+@keyframes glitchBottom {
+  0% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  10% {
+    clip: rect(50px, 900px, 100px, 0);
+  }
+  20% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  30% {
+    clip: rect(60px, 900px, 100px, 0);
+  }
+  40% {
+    clip: rect(0, 900px, 0, 0);
+  }
+  50% {
+    clip: rect(40px, 900px, 90px, 0);
+  }
+  100% {
+    clip: rect(0, 900px, 0, 0);
+  }
+}
