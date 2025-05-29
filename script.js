@@ -1,10 +1,41 @@
+import { recommendations } from './data.js';
 document.addEventListener("DOMContentLoaded", () => {
   // Set background music volume to 100% (change to 0.5 for 50% if needed)
   const music = document.getElementById("bg-music");
   if (music) {
     music.volume = 1;
   }
+  const container = document.createElement('section');
+  container.className = 'recommendations';
 
+  const horrorTitle = document.createElement('h2');
+  horrorTitle.textContent = '🎬 Hidden Horror Gems & Upcoming Chillers';
+  container.appendChild(horrorTitle);
+
+  const horrorList = document.createElement('ul');
+  horrorList.className = 'horror-list';
+  recommendations.horror.forEach(film => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${film.title}</strong> (${film.year}) – ${film.note}`;
+    horrorList.appendChild(li);
+  });
+  container.appendChild(horrorList);
+
+  const musicTitle = document.createElement('h2');
+  musicTitle.textContent = '🎧 Goth / Postpunk Picks';
+  container.appendChild(musicTitle);
+
+  const musicList = document.createElement('ul');
+  musicList.className = 'music-list';
+  recommendations.music.forEach(song => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${song.artist}</strong> – “${song.track}” (${song.note})`;
+    musicList.appendChild(li);
+  });
+  container.appendChild(musicList);
+
+  document.querySelector('.content').appendChild(container);
+  
   // Expanded list of abyssal, dark, and gothic quotes with artists/characters referenced
   const abyss = document.getElementById("abyss-quote");
   const abyssQuotes = [
