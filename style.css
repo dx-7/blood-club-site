@@ -519,6 +519,9 @@ nav a:hover {
 }
 
 .rec-card {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
   background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid var(--primary);
   padding: 1rem;
@@ -531,6 +534,7 @@ nav a:hover {
   animation-delay: var(--delay, 0s);
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
+
 .rec-card:hover {
   border: 1px solid var(--highlight);
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
@@ -540,5 +544,54 @@ nav a:hover {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.rec-thumb {
+  width: 150px;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInImage 0.6s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rec-thumb:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+@keyframes fadeInImage {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rec-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .rec-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .rec-thumb {
+    width: 100%;
+    max-height: 220px;
+  }
+
+  .rec-info {
+    text-align: center;
   }
 }
