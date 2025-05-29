@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // script.js
 
-const canvas = document.getElementById("bat-game");
+const canvas = document.getElementById("flappybat-game");
 const ctx = canvas.getContext("2d");
 
 const playButton = document.getElementById("play-btn");
