@@ -1,36 +1,71 @@
 export const recommendations = {
   horror: [
     {
-      title: "When Evil Lurks",
-      year: "2023",
-      note: "Disturbing Argentine possession horror, raw and relentless."
+      title: "A Dark Song",
+      year: "2016",
+      note: "An occult ritual film soaked in grief, mystery, and quiet dread."
     },
     {
-      title: "The Outwaters",
-      year: "2023",
-      note: "Found footage that dives into cosmic horror with nightmarish pacing."
+      title: "The Devil's Doorway",
+      year: "2018",
+      note: "Found footage in a Magdalene asylum — unsettling and atmospheric."
     },
     {
-      title: "Longlegs",
-      year: "2024 (upcoming)",
-      note: "Nicolas Cage in a chilling serial killer mystery. One to watch..."
+      title: "The Long Walk",
+      year: "2019",
+      note: "Time, ghosts, and regret blend into a chilling slow-burn Lao ghost story."
+    },
+    {
+      title: "Kill List",
+      year: "2011",
+      note: "Hitman noir spirals into cult horror — shocking and unpredictable."
+    },
+    {
+      title: "Deadstream",
+      year: "2022",
+      note: "A disgraced livestreamer enters a haunted house — chaotic and creative."
+    },
+    {
+      title: "The Medium",
+      year: "2021",
+      note: "Thai possession horror that feels like a documentary — creepy and cultural."
     }
   ],
   music: [
     {
-      artist: "Drab Majesty",
-      track: "Too Soon to Tell",
-      note: "Dreamy, melancholic, hypnotic."
+      artist: "Sidewalks and Skeletons",
+      track: "White Light",
+      note: "A shimmering, ghostly trip through dark ambient dreamspace."
     },
     {
-      artist: "Boy Harsher",
-      track: "Pain",
-      note: "Dark synthwave with a pulsing beat."
+      artist: "White Ring",
+      track: "Leprosy",
+      note: "Glitchy, decayed witch house with a name as infectious as its beat."
     },
     {
-      artist: "She Past Away",
-      track: "Kasvetli Kutlama",
-      note: "Turkish coldwave with postpunk soul."
+      artist: "Lebanon Hanover",
+      track: "Gallowdance",
+      note: "A goth anthem — morbid, romantic, and endlessly catchy."
+    },
+    {
+      artist: "SØLVE",
+      track: "A Stain That Won’t Come Out",
+      note: "Ritualistic industrial with poetic dread in every syllable."
+    },
+    {
+      artist: "The Soft Moon",
+      track: "Criminal",
+      note: "Dark electronic postpunk — full of guilt, desire, and collapse."
+    },
+    {
+      artist: "Blood Club",
+      track: "Phantom Limbs",
+      note: "A fictional track name for your site — create it, claim it, embody it."
+    },
+    {
+      artist: "Traitrs",
+      track: "The Suffering of Spiders",
+      note: "Beautifully bleak — postpunk soaked in ghostly decay and emotion."
     }
   ]
 };
