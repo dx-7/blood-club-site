@@ -3,32 +3,38 @@ export const recommendations = {
     {
       title: "A Dark Song",
       year: "2016",
-      note: "An occult ritual film soaked in grief, mystery, and quiet dread."
+      note: "An occult ritual film soaked in grief, mystery, and quiet dread.",
+      poster: "a-dark-song.jpg"
     },
     {
       title: "The Devil's Doorway",
       year: "2018",
-      note: "Found footage in a Magdalene asylum — unsettling and atmospheric."
+      note: "Found footage in a Magdalene asylum — unsettling and atmospheric.",
+      poster: "the-devils-doorway.jpg"
     },
     {
       title: "The Long Walk",
       year: "2019",
-      note: "Time, ghosts, and regret blend into a chilling slow-burn Lao ghost story."
+      note: "Time, ghosts, and regret blend into a chilling slow-burn Lao ghost story.",
+      poster: "the-long-walk.jpg"
     },
     {
       title: "Kill List",
       year: "2011",
-      note: "Hitman noir spirals into cult horror — shocking and unpredictable."
+      note: "Hitman noir spirals into cult horror — shocking and unpredictable.",
+      poster: "kill-list.jpg"
     },
     {
       title: "Deadstream",
       year: "2022",
-      note: "A disgraced livestreamer enters a haunted house — chaotic and creative."
+      note: "A disgraced livestreamer enters a haunted house — chaotic and creative.",
+      poster: "deadstream.jpg"
     },
     {
       title: "The Medium",
       year: "2021",
-      note: "Thai possession horror that feels like a documentary — creepy and cultural."
+      note: "Thai possession horror that feels like a documentary — creepy and cultural.",
+      poster: "the-medium.jpg"
     }
   ],
   music: [
