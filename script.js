@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   container.className = 'recommendations';
 
   const horrorTitle = document.createElement('h2');
-  horrorTitle.textContent = '🎬 Hidden Horror Gems & Upcoming Chillers';
+  horrorTitle.textContent = 'Horror Gems';
   container.appendChild(horrorTitle);
 
   const horrorList = document.createElement('ul');
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   container.appendChild(horrorList);
 
   const musicTitle = document.createElement('h2');
-  musicTitle.textContent = '🎧 Goth / Postpunk Picks';
+  musicTitle.textContent = 'Music';
   container.appendChild(musicTitle);
 
   const musicList = document.createElement('ul');
