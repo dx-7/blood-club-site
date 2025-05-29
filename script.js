@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Set background music volume
+  // Set background music volume to 100% (change to 0.5 for 50% if needed)
   const music = document.getElementById("bg-music");
-  if (music) music.volume = 1;
+  if (music) {
+    music.volume = 1;
+  }
 
-  // Abyssal Quotes
+  // Expanded list of abyssal, dark, and gothic quotes with artists/characters referenced
   const abyss = document.getElementById("abyss-quote");
   const abyssQuotes = [
     '"The silence here speaks louder than screams." — Halloween (1978)',
@@ -68,130 +70,39 @@ document.addEventListener("DOMContentLoaded", () => {
     '"The light fades, and so does the hope." — Soft Kill',
     '"Pain feeds the soul, but peace is a lie." — Ghostemane',
     '"I never asked for the light. I only wanted the truth." — Bladee',
+    '"The void doesn’t take you, it waits for you." — French Police',
     '"Born from nightmares, I walk amongst the living." — Sybyr',
     '"The walls around me whisper your name." — Trit95',
     '"The world is just a void pretending to be real." — Wicca Phase Spring Eternal',
+    '"The more you run from the darkness, the closer it gets." — Vestron Vulture',
     '"Once you taste darkness, there’s no going back." — Casket Cassette',
+    '"There is no afterlife; there’s only the darkness that comes after the fall." — Lil Peep',
     '"Born in shadows, I remain." — Mareux',
+    '"Not even death can escape the darkness inside." — Ghostemane',
+    '"Every shadow has its own story." — Soft Kill',
+    '"We wear masks, but the darkness sees through them." — Bladee',
     '"Even the light is afraid of the dark." — French Police',
-    '"In the end, there is only the night." — Vestron Vulture'
+    '"No one is ever truly gone." — Halloween',
+    '"Our screams are lost in the dark." — Sybyr',
+    '"We are ghosts living among the living." — Wicca Phase Spring Eternal',
+    '"Even in silence, the walls scream your name." — Casket Cassette',
+    '"In the end, there is only the night." — Vestron Vulture',
+    '"I can’t escape the abyss that calls me home." — Soft Kill',
+    '"You are a shadow in the night, lost and forgotten." — Lil Peep',
+    '"The shadows live on in our minds, forever haunting." — Ghostemane',
+    '"Pain feeds the soul, but peace is a lie." — Bladee'
   ];
 
   if (abyss) {
-    abyss.innerHTML = abyssQuotes[Math.floor(Math.random() * abyssQuotes.length)];
+    const randomQuote = abyssQuotes[Math.floor(Math.random() * abyssQuotes.length)];
+    abyss.innerHTML = randomQuote;
   }
 
+  // ✅ Lightbox configuration
   if (typeof lightbox !== "undefined") {
-    lightbox.option({ resizeDuration: 200, wrapAround: true });
-  }
-
-  // Flappy Bat Game
-  const canvas = document.getElementById("bat-game");
-  const ctx = canvas.getContext("2d");
-  const playButton = document.getElementById("play-btn");
-  const restartButton = document.getElementById("restart-btn");
-
-  let bat, gravity, velocity, isPlaying, spikes, score;
-
-  function resetGame() {
-    bat = { x: 80, y: canvas.height / 2, radius: 20, velocityY: 0 };
-    gravity = 0.5;
-    velocity = -8;
-    score = 0;
-    isPlaying = false;
-    spikes = generateObstacles();
-  }
-
-  function generateObstacles() {
-    const gap = 120;
-    const width = 60;
-    const spikes = [];
-    for (let i = 0; i < 3; i++) {
-      const top = Math.random() * 150 + 50;
-      spikes.push({ x: 400 + i * 250, width, top, bottom: top + gap });
-    }
-    return spikes;
-  }
-
-  function drawBat() {
-    ctx.fillStyle = "#8B0000";
-    ctx.beginPath();
-    ctx.arc(bat.x, bat.y, bat.radius, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  function drawSpikes() {
-    ctx.fillStyle = "#880000";
-    spikes.forEach(spike => {
-      ctx.fillRect(spike.x, 0, spike.width, spike.top);
-      ctx.fillRect(spike.x, spike.bottom, spike.width, canvas.height - spike.bottom);
+    lightbox.option({
+      resizeDuration: 200,
+      wrapAround: true
     });
   }
-
-  function drawScore() {
-    ctx.fillStyle = "#ff4444";
-    ctx.font = "28px serif";
-    ctx.textAlign = "left";
-    ctx.fillText("Score: " + score, 10, 30);
-  }
-
-  function checkCollision() {
-    if (bat.y + bat.radius >= canvas.height || bat.y - bat.radius <= 0) return true;
-    for (let spike of spikes) {
-      if (
-        bat.x + bat.radius > spike.x &&
-        bat.x - bat.radius < spike.x + spike.width &&
-        (bat.y - bat.radius < spike.top || bat.y + bat.radius > spike.bottom)
-      ) return true;
-    }
-    return false;
-  }
-
-  function updateGame() {
-    if (!isPlaying) return;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    bat.velocityY += gravity;
-    bat.y += bat.velocityY;
-    for (let spike of spikes) spike.x -= 2;
-
-    if (spikes[0].x + spikes[0].width < 0) {
-      spikes.shift();
-      const last = spikes[spikes.length - 1];
-      const top = Math.random() * 150 + 50;
-      spikes.push({ x: last.x + 250, width: 60, top, bottom: top + 120 });
-      score++;
-    }
-
-    drawBat();
-    drawSpikes();
-    drawScore();
-
-    if (checkCollision()) {
-      isPlaying = false;
-      restartButton.style.display = "block";
-    } else {
-      requestAnimationFrame(updateGame);
-    }
-  }
-
-  canvas.addEventListener("click", () => {
-    if (isPlaying) bat.velocityY = velocity;
-  });
-
-  playButton.addEventListener("click", () => {
-    playButton.style.display = "none";
-    restartButton.style.display = "none";
-    resetGame();
-    isPlaying = true;
-    updateGame();
-  });
-
-  restartButton.addEventListener("click", () => {
-    restartButton.style.display = "none";
-    resetGame();
-    isPlaying = true;
-    updateGame();
-  });
-
-  resetGame();
 });
