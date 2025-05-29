@@ -3,6 +3,10 @@
    ===================== */
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* =====================
    Root Variables for Color and Font
    ===================== */
@@ -11,7 +15,7 @@
   --highlight: #FF0000;
   --bg: #000;
   --text-light: #aaa;
-  --font-main: 'UnifrakturCook', cursive;
+  --font-main: 'UnifrakturCook', cursive, serif;
 }
 
 /* =====================
@@ -533,6 +537,7 @@ nav a:hover {
   animation: fadeInCard 0.8s ease forwards;
   animation-delay: var(--delay, 0s);
   transition: border 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 1px solid rgba(139, 0, 0, 0.3); /* subtle divider */
 }
 
 .rec-card:hover {
@@ -577,9 +582,42 @@ nav a:hover {
   flex-direction: column;
   justify-content: flex-start;
   gap: 0.5rem;
+  padding-top: 0.25rem;
 }
 
-/* Mobile responsiveness */
+.rec-info h3 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin: 0;
+}
+
+.rec-info p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.rec-link {
+  align-self: flex-start;
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--highlight);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--highlight);
+  border-radius: 4px;
+  margin-top: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.rec-link:hover {
+  background-color: var(--highlight);
+  color: #000;
+  text-decoration: none;
+  box-shadow: 0 0 10px var(--highlight);
+}
+
+/* Responsive mobile fix */
 @media (max-width: 600px) {
   .rec-card {
     flex-direction: column;
@@ -593,6 +631,10 @@ nav a:hover {
   }
 
   .rec-info {
-    text-align: center;
+    align-items: center;
+  }
+
+  .rec-link {
+    align-self: center;
   }
 }
