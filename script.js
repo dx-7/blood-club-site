@@ -18,8 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === HORROR MOVIES SECTION ===
   const horrorSection = document.createElement('section');
+  horrorSection.className = 'recommendations';
+
   const horrorTitle = document.createElement('h2');
-  horrorTitle.textContent = '🎬 Hidden Horror Gems';
+  horrorTitle.textContent = 'Horrors for the crypt';
+  horrorTitle.style.textAlign = 'left';
   horrorSection.appendChild(horrorTitle);
 
   const horrorGrid = document.createElement('div');
@@ -46,8 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === MUSIC SECTION ===
   const musicSection = document.createElement('section');
+  musicSection.className = 'recommendations';
+
   const musicTitle = document.createElement('h2');
-  musicTitle.textContent = '🎧 Goth & Witch House Picks';
+  musicTitle.textContent = 'Music for the shadows';
+  musicTitle.style.textAlign = 'left';
   musicSection.appendChild(musicTitle);
 
   const musicGrid = document.createElement('div');
