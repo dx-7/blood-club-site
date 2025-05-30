@@ -19,18 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === Only show recommendations on homepage ===
   if (isHome && content) {
-    // === HORROR MOVIES SECTION ===
-    const horrorSection = document.createElement('section');
-    horrorSection.className = 'recommendations';
+    const combinedGrid = document.createElement('section');
+    combinedGrid.className = 'recommendations-grid';
 
-    const horrorTitle = document.createElement('h2');
-    horrorTitle.textContent = 'Horrors for the crypt';
-    horrorTitle.style.textAlign = 'left';
-    horrorSection.appendChild(horrorTitle);
-
-    const horrorGrid = document.createElement('div');
-    horrorGrid.className = 'recommendations-grid';
-
+    // === HORROR MOVIES ===
     const horrorPicks = shuffle([...recommendations.horror]).slice(0, 6);
     horrorPicks.forEach((film, i) => {
       const card = document.createElement('div');
@@ -44,24 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(film.title + ' trailer')}" target="_blank" class="rec-link">Watch Trailer</a>
         </div>
       `;
-      horrorGrid.appendChild(card);
+      combinedGrid.appendChild(card);
     });
 
-    horrorSection.appendChild(horrorGrid);
-    content.appendChild(horrorSection);
-
-    // === MUSIC SECTION ===
-    const musicSection = document.createElement('section');
-    musicSection.className = 'recommendations';
-
-    const musicTitle = document.createElement('h2');
-    musicTitle.textContent = 'Music for the shadows';
-    musicTitle.style.textAlign = 'left';
-    musicSection.appendChild(musicTitle);
-
-    const musicGrid = document.createElement('div');
-    musicGrid.className = 'recommendations-grid';
-
+    // === MUSIC TRACKS ===
     const musicPicks = shuffle([...recommendations.music]).slice(0, 6);
     musicPicks.forEach((song, i) => {
       const card = document.createElement('div');
@@ -74,11 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(song.artist + ' ' + song.track)}" target="_blank" class="rec-link">Listen</a>
         </div>
       `;
-      musicGrid.appendChild(card);
+      combinedGrid.appendChild(card);
     });
 
-    musicSection.appendChild(musicGrid);
-    content.appendChild(musicSection);
+    content.appendChild(combinedGrid);
   }
 
   // === Abyss Quotes (all pages) ===
