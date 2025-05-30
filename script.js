@@ -3,7 +3,7 @@ import { recommendations } from './data.js';
 document.addEventListener("DOMContentLoaded", () => {
   // Set background music volume
   const music = document.getElementById("bg-music");
-  if (music) music.volume = 0.25;
+  if (music) music.volume = 0.1;
 
   // Shuffle helper
   function shuffle(array) {
@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === Only show recommendations on homepage ===
   if (isHome && content) {
-    const combinedGrid = document.createElement('section');
+    const combinedGrid = document.createElement('div');
     combinedGrid.className = 'recommendations-grid';
 
-    // === HORROR MOVIES ===
+    // HORROR MOVIES
     const horrorPicks = shuffle([...recommendations.horror]).slice(0, 6);
     horrorPicks.forEach((film, i) => {
       const card = document.createElement('div');
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       combinedGrid.appendChild(card);
     });
 
-    // === MUSIC TRACKS ===
+    // MUSIC TRACKS
     const musicPicks = shuffle([...recommendations.music]).slice(0, 6);
     musicPicks.forEach((song, i) => {
       const card = document.createElement('div');
