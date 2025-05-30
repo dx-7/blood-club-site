@@ -491,7 +491,6 @@ nav a:hover {
   margin-top: 5rem;
   padding: 1rem 1.5rem;
   background-color: rgba(0, 0, 0, 0.4);
-  border-left: 3px solid var(--primary); /* Matches site theme */
   color: var(--text-light);
   text-align: left;
 }
