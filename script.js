@@ -19,25 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === Only show recommendations on homepage ===
   if (isHome && content) {
-<<<<<<< HEAD
     const combinedGrid = document.createElement('div');
     combinedGrid.className = 'recommendations-grid';
 
     // HORROR MOVIES
-=======
-    // === HORROR MOVIES SECTION ===
-    const horrorSection = document.createElement('section');
-    horrorSection.className = 'recommendations';
-
-    const horrorTitle = document.createElement('h2');
-    horrorTitle.textContent = 'Horrors for the crypt';
-    horrorTitle.style.textAlign = 'left';
-    horrorSection.appendChild(horrorTitle);
-
-    const horrorGrid = document.createElement('div');
-    horrorGrid.className = 'recommendations-grid';
-
->>>>>>> parent of c281cdd (title rec fix)
     const horrorPicks = shuffle([...recommendations.horror]).slice(0, 6);
     horrorPicks.forEach((film, i) => {
       const card = document.createElement('div');
@@ -54,25 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       horrorGrid.appendChild(card);
     });
 
-<<<<<<< HEAD
     // MUSIC TRACKS
-=======
-    horrorSection.appendChild(horrorGrid);
-    content.appendChild(horrorSection);
-
-    // === MUSIC SECTION ===
-    const musicSection = document.createElement('section');
-    musicSection.className = 'recommendations';
-
-    const musicTitle = document.createElement('h2');
-    musicTitle.textContent = 'Music for the shadows';
-    musicTitle.style.textAlign = 'left';
-    musicSection.appendChild(musicTitle);
-
-    const musicGrid = document.createElement('div');
-    musicGrid.className = 'recommendations-grid';
-
->>>>>>> parent of c281cdd (title rec fix)
     const musicPicks = shuffle([...recommendations.music]).slice(0, 6);
     musicPicks.forEach((song, i) => {
       const card = document.createElement('div');
