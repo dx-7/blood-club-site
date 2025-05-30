@@ -14,17 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return array;
   }
 
-  // === Create two-column recommendation layout ===
+  // Create recommendations section
   const container = document.createElement('section');
-  container.className = 'rec-two-column';
+  container.className = 'recommendations-grid';
 
-  const movieColumn = document.createElement('div');
-  movieColumn.className = 'rec-column';
-
-  const musicColumn = document.createElement('div');
-  musicColumn.className = 'rec-column';
-
-  // === Movies (Left Column) ===
+  // Randomly pick 3 horror movies
   const horrorPicks = shuffle([...recommendations.horror]).slice(0, 3);
   horrorPicks.forEach((film, i) => {
     const card = document.createElement('div');
@@ -38,10 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(film.title + ' trailer')}" target="_blank" class="rec-link">Watch Trailer</a>
       </div>
     `;
-    movieColumn.appendChild(card);
+    container.appendChild(card);
   });
 
-  // === Music (Right Column) ===
+  // Randomly pick 3 music tracks
   const musicPicks = shuffle([...recommendations.music]).slice(0, 3);
   musicPicks.forEach((song, i) => {
     const card = document.createElement('div');
@@ -54,12 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(song.artist + ' ' + song.track)}" target="_blank" class="rec-link">Listen</a>
       </div>
     `;
-    musicColumn.appendChild(card);
+    container.appendChild(card);
   });
-
-  // Add both columns to container
-  container.appendChild(movieColumn);
-  container.appendChild(musicColumn);
 
   document.querySelector('.content').appendChild(container);
 
