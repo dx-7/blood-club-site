@@ -3,7 +3,7 @@ import { recommendations } from './data.js';
 document.addEventListener("DOMContentLoaded", () => {
   // Set background music volume
   const music = document.getElementById("bg-music");
-  if (music) music.volume = .5;
+  if (music) music.volume = 0.25;
 
   // Shuffle helper
   function shuffle(array) {
@@ -15,69 +15,73 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const content = document.querySelector('.content');
+  const isHome = location.pathname === '/' || location.pathname === '/index.html';
 
-  // === HORROR MOVIES SECTION ===
-  const horrorSection = document.createElement('section');
-  horrorSection.className = 'recommendations';
+  // === Only show recommendations on homepage ===
+  if (isHome && content) {
+    // === HORROR MOVIES SECTION ===
+    const horrorSection = document.createElement('section');
+    horrorSection.className = 'recommendations';
 
-  const horrorTitle = document.createElement('h2');
-  horrorTitle.textContent = 'Horrors for the crypt';
-  horrorTitle.style.textAlign = 'left';
-  horrorSection.appendChild(horrorTitle);
+    const horrorTitle = document.createElement('h2');
+    horrorTitle.textContent = 'Horrors for the crypt';
+    horrorTitle.style.textAlign = 'left';
+    horrorSection.appendChild(horrorTitle);
 
-  const horrorGrid = document.createElement('div');
-  horrorGrid.className = 'recommendations-grid';
+    const horrorGrid = document.createElement('div');
+    horrorGrid.className = 'recommendations-grid';
 
-  const horrorPicks = shuffle([...recommendations.horror]).slice(0, 6);
-  horrorPicks.forEach((film, i) => {
-    const card = document.createElement('div');
-    card.className = 'rec-card';
-    card.style.setProperty('--delay', `${i * 0.15}s`);
-    card.innerHTML = `
-      <img src="/assets/images/posters/${film.poster}" alt="${film.title}" class="rec-thumb">
-      <div class="rec-info">
-        <h3>${film.title} <span class="year">(${film.year})</span></h3>
-        <p>${film.note}</p>
-        <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(film.title + ' trailer')}" target="_blank" class="rec-link">Watch Trailer</a>
-      </div>
-    `;
-    horrorGrid.appendChild(card);
-  });
+    const horrorPicks = shuffle([...recommendations.horror]).slice(0, 6);
+    horrorPicks.forEach((film, i) => {
+      const card = document.createElement('div');
+      card.className = 'rec-card';
+      card.style.setProperty('--delay', `${i * 0.15}s`);
+      card.innerHTML = `
+        <img src="/assets/images/posters/${film.poster}" alt="${film.title}" class="rec-thumb">
+        <div class="rec-info">
+          <h3>${film.title} <span class="year">(${film.year})</span></h3>
+          <p>${film.note}</p>
+          <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(film.title + ' trailer')}" target="_blank" class="rec-link">Watch Trailer</a>
+        </div>
+      `;
+      horrorGrid.appendChild(card);
+    });
 
-  horrorSection.appendChild(horrorGrid);
-  content.appendChild(horrorSection);
+    horrorSection.appendChild(horrorGrid);
+    content.appendChild(horrorSection);
 
-  // === MUSIC SECTION ===
-  const musicSection = document.createElement('section');
-  musicSection.className = 'recommendations';
+    // === MUSIC SECTION ===
+    const musicSection = document.createElement('section');
+    musicSection.className = 'recommendations';
 
-  const musicTitle = document.createElement('h2');
-  musicTitle.textContent = 'Music for the shadows';
-  musicTitle.style.textAlign = 'left';
-  musicSection.appendChild(musicTitle);
+    const musicTitle = document.createElement('h2');
+    musicTitle.textContent = 'Music for the shadows';
+    musicTitle.style.textAlign = 'left';
+    musicSection.appendChild(musicTitle);
 
-  const musicGrid = document.createElement('div');
-  musicGrid.className = 'recommendations-grid';
+    const musicGrid = document.createElement('div');
+    musicGrid.className = 'recommendations-grid';
 
-  const musicPicks = shuffle([...recommendations.music]).slice(0, 6);
-  musicPicks.forEach((song, i) => {
-    const card = document.createElement('div');
-    card.className = 'rec-card';
-    card.style.setProperty('--delay', `${(i + 6) * 0.15}s`);
-    card.innerHTML = `
-      <div class="rec-info">
-        <h3>${song.artist} – <span class="track">${song.track}</span></h3>
-        <p>${song.note}</p>
-        <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(song.artist + ' ' + song.track)}" target="_blank" class="rec-link">Listen</a>
-      </div>
-    `;
-    musicGrid.appendChild(card);
-  });
+    const musicPicks = shuffle([...recommendations.music]).slice(0, 6);
+    musicPicks.forEach((song, i) => {
+      const card = document.createElement('div');
+      card.className = 'rec-card';
+      card.style.setProperty('--delay', `${(i + 6) * 0.15}s`);
+      card.innerHTML = `
+        <div class="rec-info">
+          <h3>${song.artist} – <span class="track">${song.track}</span></h3>
+          <p>${song.note}</p>
+          <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(song.artist + ' ' + song.track)}" target="_blank" class="rec-link">Listen</a>
+        </div>
+      `;
+      musicGrid.appendChild(card);
+    });
 
-  musicSection.appendChild(musicGrid);
-  content.appendChild(musicSection);
+    musicSection.appendChild(musicGrid);
+    content.appendChild(musicSection);
+  }
 
-  // === Abyss Quotes ===
+  // === Abyss Quotes (all pages) ===
   const abyss = document.getElementById("abyss-quote");
   const abyssQuotes = [
     "\"The silence here speaks louder than screams.\" — Halloween (1978)",
