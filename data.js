@@ -64,7 +64,7 @@ export const recommendations = {
       note: "Dark electronic postpunk — full of guilt, desire, and collapse."
     },
     {
-      artist: "Blood Club",
+      artist: "Bloodclub",
       track: "Half Love",
       note: "A haunting confession — drenched in reverb, aching with longing, and pulsing with dark allure."
     },
