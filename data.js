@@ -65,8 +65,8 @@ export const recommendations = {
     },
     {
       artist: "Blood Club",
-      track: "Phantom Limbs",
-      note: "A fictional track name for your site — create it, claim it, embody it."
+      track: "Half Love",
+      note: "A haunting confession — drenched in reverb, aching with longing, and pulsing with dark allure."
     },
     {
       artist: "Traitrs",
