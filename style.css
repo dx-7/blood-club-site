@@ -487,11 +487,38 @@ nav a:hover {
   80% { clip-path: inset(70% 0 15% 0); }
   100% { clip-path: inset(80% 0 10% 0); }
 }
+.recommendations {
+  margin-top: 5rem;
+  padding: 1rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-left: 3px solid var(--primary); /* Matches site theme */
+  color: var(--text-light);
+  text-align: left;
+}
+
+.recommendations h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--primary); /* Matches main text tone */
+  margin: 2rem 0 1rem;
+}
+
+.recommendations ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.recommendations li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  border-left: 2px solid #444;
+  padding-left: 1rem;
+  color: var(--text-light);
+}
 .recommendations-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 2rem; /* Reduced from 4rem */
+  margin-top: 4rem;
   padding: 1rem;
 }
 
@@ -510,7 +537,7 @@ nav a:hover {
   animation: fadeInCard 0.8s ease forwards;
   animation-delay: var(--delay, 0s);
   transition: border 0.3s ease, box-shadow 0.3s ease;
-  border-bottom: 1px solid rgba(139, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(139, 0, 0, 0.3); /* subtle divider */
 }
 
 .rec-card:hover {
