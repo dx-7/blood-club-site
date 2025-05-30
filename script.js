@@ -3,7 +3,7 @@ import { recommendations } from './data.js';
 document.addEventListener("DOMContentLoaded", () => {
   // Set background music volume
   const music = document.getElementById("bg-music");
-  if (music) music.volume = 1;
+  if (music) music.volume = .5;
 
   // Shuffle helper
   function shuffle(array) {
