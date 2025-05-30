@@ -14,12 +14,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return array;
   }
 
-  // Create recommendations section
-  const container = document.createElement('section');
-  container.className = 'recommendations-grid';
+  const content = document.querySelector('.content');
 
-  // Randomly pick 3 horror movies
-  const horrorPicks = shuffle([...recommendations.horror]).slice(0, 3);
+  // === HORROR MOVIES SECTION ===
+  const horrorSection = document.createElement('section');
+  const horrorTitle = document.createElement('h2');
+  horrorTitle.textContent = '🎬 Hidden Horror Gems';
+  horrorSection.appendChild(horrorTitle);
+
+  const horrorGrid = document.createElement('div');
+  horrorGrid.className = 'recommendations-grid';
+
+  const horrorPicks = shuffle([...recommendations.horror]).slice(0, 6);
   horrorPicks.forEach((film, i) => {
     const card = document.createElement('div');
     card.className = 'rec-card';
@@ -32,15 +38,26 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(film.title + ' trailer')}" target="_blank" class="rec-link">Watch Trailer</a>
       </div>
     `;
-    container.appendChild(card);
+    horrorGrid.appendChild(card);
   });
 
-  // Randomly pick 3 music tracks
-  const musicPicks = shuffle([...recommendations.music]).slice(0, 3);
+  horrorSection.appendChild(horrorGrid);
+  content.appendChild(horrorSection);
+
+  // === MUSIC SECTION ===
+  const musicSection = document.createElement('section');
+  const musicTitle = document.createElement('h2');
+  musicTitle.textContent = '🎧 Goth & Witch House Picks';
+  musicSection.appendChild(musicTitle);
+
+  const musicGrid = document.createElement('div');
+  musicGrid.className = 'recommendations-grid';
+
+  const musicPicks = shuffle([...recommendations.music]).slice(0, 6);
   musicPicks.forEach((song, i) => {
     const card = document.createElement('div');
     card.className = 'rec-card';
-    card.style.setProperty('--delay', `${(i + 3) * 0.15}s`);
+    card.style.setProperty('--delay', `${(i + 6) * 0.15}s`);
     card.innerHTML = `
       <div class="rec-info">
         <h3>${song.artist} – <span class="track">${song.track}</span></h3>
@@ -48,10 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(song.artist + ' ' + song.track)}" target="_blank" class="rec-link">Listen</a>
       </div>
     `;
-    container.appendChild(card);
+    musicGrid.appendChild(card);
   });
 
-  document.querySelector('.content').appendChild(container);
+  musicSection.appendChild(musicGrid);
+  content.appendChild(musicSection);
 
   // === Abyss Quotes ===
   const abyss = document.getElementById("abyss-quote");
