@@ -3,7 +3,7 @@ import { recommendations } from './data.js';
 document.addEventListener("DOMContentLoaded", () => {
   // Set background music volume
   const music = document.getElementById("bg-music");
-  if (music) music.volume = 0.1;
+  if (music) music.volume = 0.5;
 
   // Shuffle helper
   function shuffle(array) {
@@ -19,10 +19,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === Only show recommendations on homepage ===
   if (isHome && content) {
-    const combinedGrid = document.createElement('div');
-    combinedGrid.className = 'recommendations-grid';
+    // === HORROR MOVIES SECTION ===
+    const horrorSection = document.createElement('section');
+    horrorSection.className = 'recommendations';
 
-    // HORROR MOVIES
+    const horrorTitle = document.createElement('h2');
+    horrorTitle.textContent = 'Horrors for the crypt';
+    horrorTitle.style.textAlign = 'left';
+    horrorSection.appendChild(horrorTitle);
+
+    const horrorGrid = document.createElement('div');
+    horrorGrid.className = 'recommendations-grid';
+
     const horrorPicks = shuffle([...recommendations.horror]).slice(0, 6);
     horrorPicks.forEach((film, i) => {
       const card = document.createElement('div');
@@ -39,7 +47,21 @@ document.addEventListener("DOMContentLoaded", () => {
       horrorGrid.appendChild(card);
     });
 
-    // MUSIC TRACKS
+    horrorSection.appendChild(horrorGrid);
+    content.appendChild(horrorSection);
+
+    // === MUSIC SECTION ===
+    const musicSection = document.createElement('section');
+    musicSection.className = 'recommendations';
+
+    const musicTitle = document.createElement('h2');
+    musicTitle.textContent = 'Music for the shadows';
+    musicTitle.style.textAlign = 'left';
+    musicSection.appendChild(musicTitle);
+
+    const musicGrid = document.createElement('div');
+    musicGrid.className = 'recommendations-grid';
+
     const musicPicks = shuffle([...recommendations.music]).slice(0, 6);
     musicPicks.forEach((song, i) => {
       const card = document.createElement('div');
